@@ -7,11 +7,11 @@ import pip._vendor.requests
 import time
 
 # Set your Google Cloud project ID and Pub/Sub topic ID
-project_id = "ps-int-datateamrnd-22072022"
-topic_id = "pubsub-test-lingga"
+project_id = "your project id" #replace with your project id
+topic_id = "your topic id" #Replace with your topic id
 
 # service acc credentials
-credentials = 'D:\WORK\lingga-sa-int-datateamrnd-22072022-1e041e96c9a0.json'
+credentials = "your service account path/directory" #Replace with your service account path/directory
 os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = credentials
 
 def publish_message(project_id, topic_id, message):
@@ -32,7 +32,7 @@ def publish_message(project_id, topic_id, message):
 
 
 # Set the message content
-message = '{"message":"another message from local"}'
+message = '{"message":"another message from local"}' #write your message here
 
 # Publish the message to Pub/Sub
 publish_message(project_id, topic_id, message)

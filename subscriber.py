@@ -3,15 +3,14 @@ from apache_beam.options.pipeline_options import PipelineOptions
 import os, logging, json
 
 # Set the Pub/Sub topic and output path
-project_id = "ps-int-datateamrnd-22072022"
-subscription_id = "pubsub-test-lingga-sub"
-# output_path = "gs://bucket_lingga/output/"
-credentials = "D:\WORK\lingga-sa-int-datateamrnd-22072022-1e041e96c9a0.json"
+project_id = "your project id" #replace with your project id
+subscription_id = "your subscription id" #Replace with your subscription id
+credentials = "your service account path/directory" #Replace with your service account path/directory
 os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = credentials
 
 # BQ table
-table_id = 'stream_pubsub'  # replace with your table ID 
-dataset_id = 'lingga_test'  # replace with your dataset_id
+table_id = 'BQ table ID'  # replace with your table ID 
+dataset_id = 'BQ dataset ID'  # replace with your dataset_id
 
 #BQ Schema
 bq_schema = schema_stdetails_fact = (
@@ -19,11 +18,11 @@ bq_schema = schema_stdetails_fact = (
     )
 
 #dataflow options
-job_name = "stream-test-2" # replace with your job name
-temp_location=f'gs://bucket_lingga/dataflow_temp'
-staging_location = f'gs://bucket_lingga/dataflow_staging' # replace with  your folder destination
-max_num_workers=1 # replace with preferred num_workers
-worker_region='asia-southeast2' #replace with your worker region
+job_name = "your dataflow job name" # replace with your job name
+temp_location=f'gs://your_bucket/temporary_location' # replace with your bucket folder destination
+staging_location = f'gs://your_bucket/staging_location' # replace with your bucket folder destination
+max_num_workers="Maximum Dataflow worker" # replace with preferred num_workers
+worker_region='your worker region' #replace with your worker region
 streaming=True
 
 def run(argv=None):
